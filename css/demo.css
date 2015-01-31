@@ -88,14 +88,19 @@ table {
 	tr {
 		display: table-row; }
 
-/* Styling by rule */
-#data, #input, #visualizations {
-	min-width: 50%;	}
-
+/* Styling by DOM or element */
 html, body {
 	background: white; }
 
-/* Styling by DOM or element */
 #demo {
 	flex-direction: row;
 	flex-wrap: wrap; }
+	
+#data, #visualizations {
+	min-width: 50%;	}
+
+#input {
+	height: 30%; }
+
+#json {
+	height: 70%; }
