@@ -16,34 +16,38 @@
 	</header>
 	
 	<section id=demo>
-		<section id=input>
-			<label for=token>
-		 		<p>Token</p>
-		 		<input id=token>
-		 	</label>
-		 	<label for=gloss>
-		 		<p>Gloss</p>
-			 	<input id=gloss>
-		 	</label>
-		 	<label for=pos>
-		 		<p>Part of Speech</p>
-		 		<select id=pos>
-		 			<option value=noun>noun</option>
-					<option value=verb>verb</option>
-					<option value=adjective>adjective</option>
-					<option value=interjection>interjection</option>
-		 		</select>
-		 	</label>
-		 </section>
-		
 		<section id=data>
-			<textarea>
-				{ 
-				  "token" : "hola",
-				  "gloss" : "hello",
-				  "partOfSpeech" : "interjection"
-				}
-			</textarea>
+			<section id=input>
+				<label for=token>
+			 		<p>Token</p>
+			 		<input id=token>
+			 	</label>
+			 	
+			 	<label for=gloss>
+			 		<p>Gloss</p>
+				 	<input id=gloss>
+			 	</label>
+			 	
+			 	<label for=pos>
+			 		<p>Part of Speech</p>
+			 		<select id=pos>
+			 			<option value=noun>noun</option>
+						<option value=verb>verb</option>
+						<option value=adjective>adjective</option>
+						<option value=interjection>interjection</option>
+					</select>
+				</label>
+			</section>
+			
+			<section id=json>
+				<textarea>
+					{ 
+					  "token" : "hola",
+					  "gloss" : "hello",
+					  "partOfSpeech" : "interjection"
+					}
+				</textarea>
+			</section>
 		</section>
 		
 		<section id=visualizations>
