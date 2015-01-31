@@ -21,6 +21,7 @@ article, aside, canvas, details, embed, figure, figcaption, footer, header, hgro
 	height: auto;
 	flex-direction: column;
 	font-size: 100%;
+	font-weight: normal;
 	font: inherit;
 	line-height: 150%;
 	margin: 0;
@@ -83,13 +84,11 @@ table {
 	tr {
 		display: table-row; }
 
-/* Styling by DOM elements */
+/* Styling by rule */
 html, body {
 	background: white; }
 
-	<style>
-
-/*
+/*	<style>
 header { 
   font-size: small;
 }
