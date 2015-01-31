@@ -93,19 +93,17 @@ html, body {
 	background: white; }
 
 #demo {
+	height: 100%;
 	flex-direction: row;
 	flex-wrap: wrap; }
 
 #data, #visualizations {
-	flex-grow: 1;
-	min-width: 50%;	}
-
-#input {
-	height: 30%; }
+	width: 50%;	}
 
 #json {
 	background-color: black;
 	color: green;
 	font-family: 'Courier New';
 	font-weight: bold;
-	height: 70%; }
+	overflow-x: scroll;
+	padding: 0.25rem; }

@@ -1,7 +1,7 @@
-var gloss = document.getElementById('gloss');
-var input = document.getElementById('input');
-var json = document.getElementById('json');
-var token = document.getElementById('token');
+var phraseBox = document.getElementById('phraseBox');
+var inputArea = document.getElementById('input');
+var jsonArea = document.getElementById('json');
+var translationBox = document.getElementById('translationBox');
 
 var phrase = {
 	transcription: '',
@@ -16,7 +16,23 @@ function Word(token, gloss, partOfSpeech) {
 };
 
 function displayJSON() {
+	var text = transcription.value;
+	var tokens = text.split(/[ .,!?]/g);
 	
+	var words = []
+	tokens.forEach(function(token) {
+		if (token !== '') {
+			var word = new Word(token, '', '');
+			words.push(word);
+		}
+	});
+	phrase.words = words;
+	
+	phrase.transcription = transcription.value;
+	phrase.translation = translation.value;
+	
+	json.innerHTML = JSON.stringify(phrase, null, 2);
 };
 
 input.addEventListener('input', displayJSON);
+window.addEventListener('load', displayJSON);
