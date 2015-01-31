@@ -7,80 +7,66 @@
 	<meta name=keywords content='linguistics, data modeling, digital linguistics, wugbot, interlinear gloss'>
 	<title>Visualizing Linguistic Data Structures</title>
 	
-	<link rel='stylesheet' type='text/css' href='demo.css'>
+	<link rel='stylesheet' type='text/css' href='css/demo.css'>
 </head>
 <body>
-<header>
-	<h1>Digitally Representing Linguistic Structures</h1>
-</header>
-
-<main>
-
-<section id=input>
-	<label for=token>
- 		<p>Token</p>
- 		<input id=token>
- 	</label>
- 	<label for=gloss>
- 		<p>Gloss</p>
-	 	<input id=gloss>
- 	</label>
- 	<label for=pos>
- 		<p>Part of Speech</p>
- 		<select id=pos>
- 			<option value=noun>noun</option>
-			<option value=verb>verb</option>
-			<option value=adjective>adjective</option>
-			<option value=interjection>interjection</option>
- 		</select>
- 	</label>
- </section>
-
-<section id=data>
-<textarea>
-{ 
-  "token" : "hola",
-  "gloss" : "hello",
-  "partOfSpeech" : "interjection"
-}
-</textarea>
-</section>
-
-<section id=viz>
-  <div class=example id=example1>
-    <h1><span class=token> </span> <span class=partOfSpeech></span></h1>
-    <p class=gloss></p>
-  </div>
-
-  <div class=example id=example2>
-    <p><span class=token></span> &middot; <span class=partOfSpeech></span> <q class=gloss></q></p>
-  </div>
-
-  <div class=example id=example3>
-    <ul>
-      <li><strong class=token></strong> [<span class=partOfSpeech></span>] ‘<span class=gloss></span>’
-    </ul>
-  </div>
-</section>
-
-<script>
-var textarea = document.querySelector('#data textarea');
-var example1 = document.querySelector('#viz #example1');
-var example2 = document.querySelector('#viz #example2');
-var example3 = document.querySelector('#viz #example3');
-
-var examples = [example1, example2, example3];
-
-var word = JSON.parse(textarea.value);
-
-examples.forEach(function(example){
-  example.querySelector('.token').textContent = word.token;
-  example.querySelector('.partOfSpeech').textContent = word.partOfSpeech;
-  example.querySelector('.gloss').textContent = word.gloss;
-})
-
-</script>
-
-</main>
+	<header>
+		<h1>Digitally Representing Linguistic Structures</h1>
+	</header>
+	
+	<section id=demo>
+		<section id=input>
+			<label for=token>
+		 		<p>Token</p>
+		 		<input id=token>
+		 	</label>
+		 	<label for=gloss>
+		 		<p>Gloss</p>
+			 	<input id=gloss>
+		 	</label>
+		 	<label for=pos>
+		 		<p>Part of Speech</p>
+		 		<select id=pos>
+		 			<option value=noun>noun</option>
+					<option value=verb>verb</option>
+					<option value=adjective>adjective</option>
+					<option value=interjection>interjection</option>
+		 		</select>
+		 	</label>
+		 </section>
+		
+		<section id=data>
+			<textarea>
+				{ 
+				  "token" : "hola",
+				  "gloss" : "hello",
+				  "partOfSpeech" : "interjection"
+				}
+			</textarea>
+		</section>
+		
+		<section id=visulations>
+		  <div class=example id=interlinearGloss>
+		  	<p>Interlinear Gloss</p>
+		    <h1><span class=token> </span> <span class=partOfSpeech></span></h1>
+		    <p class=gloss></p>
+		  </div>
+		
+		  <div class=example id=stats>
+		  	<p>Stats</p>
+		    <p><span class=token></span> &middot; <span class=partOfSpeech></span> <q class=gloss></q></p>
+		  </div>
+		
+		  <div class=example id=dictionaryEntry>
+		  	<p>Dictionary</p>
+		    <ul>
+		      <li><strong class=token></strong> [<span class=partOfSpeech></span>] ‘<span class=gloss></span>’
+		    </ul>
+		  </div>
+		</section>
+		
+		<script src="js/demo.js"></script>
+		
+	</section>
 </body>
 </html>
