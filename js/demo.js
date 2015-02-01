@@ -55,10 +55,8 @@ function updatePhrase() {
 	
 	var words = [];
 	tokens.forEach(function(token) {
-		if (token !== '') {
-			var word = new Word(token, '', '');
-			words.push(word);
-		}
+		var word = new Word(token, '', '');
+		words.push(word);
 	});
 	phrase.words = words;
 	
