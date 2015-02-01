@@ -63,7 +63,7 @@ function updatePhrase() {
 	phrase.words = words;
 	
 	phrase.transcription = transcription;
-	phrase.translation = translationBox;
+	phrase.translation = translation;
 };
 
 // EVENT LISTENERS
