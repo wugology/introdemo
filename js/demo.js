@@ -51,14 +51,12 @@ function render() {
 function updatePhrase() {
 	var transcription = transcriptionBox.value;
 	var translation = translationBox.value;
-	var tokens = transcription.split(/[\u3000 .,!?]/g);
+	var tokens = transcription.split(/[\u3000 .,!?]+/g);
 	
 	var words = [];
 	tokens.forEach(function(token) {
-		if (token !== '') {
-			var word = new Word(token, '', '');
-			words.push(word);
-		}
+          var word = new Word(token, '', '');
+          words.push(word);
 	});
 	phrase.words = words;
 	
