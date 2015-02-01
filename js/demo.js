@@ -17,7 +17,7 @@ function Word(token, gloss, partOfSpeech) {
 
 function displayJSON() {
 	var text = transcription.value;
-	var tokens = text.split(/[ .,!?]/g);
+	var tokens = text.split(/[\u3000 .,!?]/g);
 	
 	var words = []
 	tokens.forEach(function(token) {
