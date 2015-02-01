@@ -1,9 +1,9 @@
-var phraseBox = document.getElementById('phraseBox');
-var inputArea = document.getElementById('input');
-var jsonArea = document.getElementById('json');
-var translationBox = document.getElementById('translationBox');
+// GLOBAL VARIABLES
 var downloadArea = document.getElementById('downloadArea');
-
+var inputArea = document.getElementById('inputArea');
+var jsonArea = document.getElementById('jsonArea');
+var transcriptionBox = document.getElementById('transcriptionBox');
+var translationBox = document.getElementById('translationBox');
 
 var phrase = {
 	transcription: '',
@@ -11,17 +11,49 @@ var phrase = {
 	words: []
 };
 
+// CONSTRUCTORS
 function Word(token, gloss, partOfSpeech) {
 	this.token = token;
 	this.gloss = gloss;
 	this.partOfSpeech = partOfSpeech;
 };
 
-function displayJSON() {
-	var text = transcription.value;
-	var tokens = text.split(/[\u3000 .,!?]/g);
+// GLOBAL FUNCTIONS
+function displayDictionary() {
 	
-	var words = []
+};
+
+function displayInterlinear() {
+	
+};
+
+function displayJSON() {	
+	jsonArea.innerHTML = JSON.stringify(phrase, null, 2);
+};
+
+function downloadJSON(){
+	// Get the JSON data
+	var text = document.getElementById('jsonArea').innerHTML;
+	// Encode
+	var data = "text/json;charset=utf-8," + encodeURIComponent(text);
+	// Create a download link
+	document.getElementById('downloadArea').innerHTML = '<a class="button blue" href="data:' + data + '" download="data.json">Download your data!</a>'
+}
+
+// Updates the phrase object, and (re-)renders the JSON, interlinear, and lexicon visualizations
+function render() {
+	updatePhrase();
+	displayJSON();
+	displayInterlinear();
+	displayDictionary();
+};
+
+function updatePhrase() {
+	var transcription = transcriptionBox.value;
+	var translation = translationBox.value;
+	var tokens = transcription.split(/[\u3000 .,!?]/g);
+	
+	var words = [];
 	tokens.forEach(function(token) {
 		if (token !== '') {
 			var word = new Word(token, '', '');
@@ -30,23 +62,13 @@ function displayJSON() {
 	});
 	phrase.words = words;
 	
-	phrase.transcription = transcription.value;
-	phrase.translation = translation.value;
-	
-	json.innerHTML = JSON.stringify(phrase, null, 2);
+	phrase.transcription = transcription;
+	phrase.translation = translationBox;
 };
 
-function downloadJSON(){
-	// Get the JSON data
-	var text = document.getElementById('json').innerHTML;
-	// Encode
-	var data = "text/json;charset=utf-8," + encodeURIComponent(text);
-	// Create a download link
-	document.getElementById('downloadArea').innerHTML = '<a class="button blue" href="data:' + data + '" download="data.json">Download the Data!</a>'
-}
-
-input.addEventListener('input', downloadJSON);
+// EVENT LISTENERS
+inputArea.addEventListener('input', downloadJSON);
 window.addEventListener('load', downloadJSON);
 
-input.addEventListener('input', displayJSON);
-window.addEventListener('load', displayJSON);
+inputArea.addEventListener('input', render);
+window.addEventListener('load', render);
