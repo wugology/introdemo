@@ -1,9 +1,11 @@
 // GLOBAL VARIABLES
-var downloadArea = document.getElementById('downloadArea');
-var inputArea = document.getElementById('inputArea');
-var jsonArea = document.getElementById('jsonArea');
-var transcriptionBox = document.getElementById('transcriptionBox');
-var translationBox = document.getElementById('translationBox');
+var nodes = {
+	downloadArea: document.querySelector('#downloadArea'),
+	inputArea: document.querySelector('#inputArea'),
+	jsonArea: document.querySelector('#jsonArea'),
+	transcriptionBox: document.querySelector('#transcriptionBox'),
+	translationBox: document.querySelector('#translationBox')
+};
 
 var phrase = {
 	transcription: '',
@@ -28,16 +30,16 @@ function displayInterlinear() {
 };
 
 function displayJSON() {	
-	jsonArea.innerHTML = JSON.stringify(phrase, null, 2);
+	nodes.jsonArea.innerHTML = JSON.stringify(phrase, null, 2);
 };
 
 function downloadJSON(){
 	// Get the JSON data
-	var text = document.getElementById('jsonArea').innerHTML;
+	var text = nodes.jsonArea.innerHTML;
 	// Encode
 	var data = "text/json;charset=utf-8," + encodeURIComponent(text);
 	// Create a download link
-	document.getElementById('downloadArea').innerHTML = '<a class="button blue" href="data:' + data + '" download="data.json">Download your data!</a>'
+	nodes.downloadArea.innerHTML = '<a class="button blue" href="data:' + data + '" download="data.json">Download your data!</a>'
 }
 
 // Updates the phrase object, and (re-)renders the JSON, interlinear, and lexicon visualizations
@@ -49,8 +51,8 @@ function render() {
 };
 
 function updatePhrase() {
-	var transcription = transcriptionBox.value;
-	var translation = translationBox.value;
+	var transcription = nodes.transcriptionBox.value;
+	var translation = nodes.translationBox.value;
 	var tokens = transcription.split(/[\u3000 .,!?]/g);
 	
 	var words = [];
@@ -65,8 +67,8 @@ function updatePhrase() {
 };
 
 // EVENT LISTENERS
-inputArea.addEventListener('input', downloadJSON);
+nodes.inputArea.addEventListener('input', downloadJSON);
 window.addEventListener('load', downloadJSON);
 
-inputArea.addEventListener('input', render);
+nodes.inputArea.addEventListener('input', render);
 window.addEventListener('load', render);
