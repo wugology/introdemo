@@ -6,7 +6,7 @@
   <meta name=description content='A demo of the digital representation of linguistic structure'>
   <meta name=keywords content='linguistics, data modeling, digital linguistics, wugbot, interlinear gloss'>
   <title>Visualizing Linguistic Data Structures</title>
-	
+  
   <link rel=stylesheet type='text/css' href='css/demo.css'>
 </head>
 
@@ -14,24 +14,24 @@
   <header>
     <h1>Digitally Representing Linguistic Structures</h1>
   </header>
-	
+  
   <section id=demo>
     <section id=data>
       <section id=inputArea>
         <label for=transcriptionBox>
-	  <p>Phrase</p>
-	  <input id=transcriptionBox type=text>
-	</label>
-	 	
-	<label for=translationBox>
-	  <p>Translation</p>
-	  <input id=translationBox type=text>
-	</label>
+    <p>Phrase</p>
+    <input id=transcriptionBox type=text>
+  </label>
+     
+  <label for=translationBox>
+    <p>Translation</p>
+    <input id=translationBox type=text>
+  </label>
       </section>
-			
+      
       <pre id=jsonArea></pre>
     </section>
-	
+  
     <section id=visualizations>
       <div class=visualization id=interlinearGloss>
         <h2>Interlinear Gloss</h2>
@@ -39,7 +39,7 @@
           <p class=transcription></p>
           <ol class=words></ol>
           <p class=translation></p>
-				</div>
+        </div>
       </div>
       
       <div class=visualization id=stats>
@@ -51,17 +51,17 @@
       </div>
     </section>
   </section>
-	
-	<a id=downloadButton download='mydata.json'>Download your data!</a>
-	
+  
+  <a id=downloadButton download='mydata.json'>Download your data!</a>
+  
   <template id=wordTemplate>
     <li class=word>
       <p class=wordToken></p>
       <input class=wordGloss type=text>
     </li>
   </template>
-	
-	<script src='js/script.js'></script>
+  
+  <script src='js/script.js'></script>
   <script src='js/demo.js'></script>
 </body>
 </html>

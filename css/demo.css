@@ -15,98 +15,98 @@ dl, dt, dd, ol, ul, li,
 button, caption, input, fieldset, form, label, legend, table, textarea, tbody, tfoot, thead, tr, th, td,
 /* Semantic elements */
 article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	border: none;
-	box-sizing: border-box;
-	display: flex;
-	height: auto;
-	flex-direction: column;
-	font-size: 100%;
-	font-weight: normal;
-	font: inherit;
-	line-height: 150%;
-	margin: 0;
-	outline: none;
-	padding: 0;
-	text-decoration: none;
-	vertical-align: baseline;
-	/* font-family has to be last in this declaration */
-	font-family: "Gentium Plus", "Charis SIL", "Doulos SIL", "Lucida Sans Unicode", "Times New Roman", serif, sans-serif; }
+  border: none;
+  box-sizing: border-box;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  font-size: 100%;
+  font-weight: normal;
+  font: inherit;
+  line-height: 150%;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+  /* font-family has to be last in this declaration */
+  font-family: "Gentium Plus", "Charis SIL", "Doulos SIL", "Lucida Sans Unicode", "Times New Roman", serif, sans-serif; }
 
 /* Styling by classes or element type */
 a, a:hover, a:visited, a:active {
-	background: transparent;
-	color: inherit;
-	text-decoration: none: }
+  background: transparent;
+  color: inherit;
+  text-decoration: none: }
 
 a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var {
-	display: inline; }
+  display: inline; }
 
 blockquote, q {
-	quotes: none; }
+  quotes: none; }
 
 blockquote:before, blockquote:after, q:before, q:after {
-	content: '';
-	content: none; }
+  content: '';
+  content: none; }
 
 h1 {
-	font-weight: bold;
-	text-align: center; }
+  font-weight: bold;
+  text-align: center; }
 
 input {
-	background-color: lightgray; }
+  background-color: lightgray; }
 
 input[type="date"] {
-	flex-direction: row; }
+  flex-direction: row; }
 
 input[type="radio"] {
-	align-self: center; }
+  align-self: center; }
 
 #inputArea, #jsonArea {
-	padding: 0.5rem; }
+  padding: 0.5rem; }
 
 ol, ul {
-	list-style: none; }
+  list-style: none; }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	display: table; }
-	
-	tbody {
-		display: table-row-group; }
-	
-	td, td {
-		vertical-align: middle; }
-	
-	td {
-		display: table-cell; }
-	
-	th {
-		display: table-cell;
-		text-align: center; }
-	
-	thead {
-		display: table-header-group; }
-	
-	tr {
-		display: table-row; }
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table; }
+  
+  tbody {
+    display: table-row-group; }
+  
+  td, td {
+    vertical-align: middle; }
+  
+  td {
+    display: table-cell; }
+  
+  th {
+    display: table-cell;
+    text-align: center; }
+  
+  thead {
+    display: table-header-group; }
+  
+  tr {
+    display: table-row; }
 
 /* Styling by DOM or element */
 html, body {
-	background: white; }
+  background: white; }
 
 #demo {
-	height: 100%;
-	flex-direction: row;
-	flex-wrap: wrap; }
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: wrap; }
 
 #data, #visualizations {
-	width: 50%;	}
+  width: 50%;  }
 
 #jsonArea {
-	background-color: black;
-	color: green;
-	font-family: 'Courier New';
-	font-weight: bold;
-	margin: 0.5rem;
-	overflow-x: scroll; }
+  background-color: black;
+  color: green;
+  font-family: 'Courier New';
+  font-weight: bold;
+  margin: 0.5rem;
+  overflow-x: scroll; }
