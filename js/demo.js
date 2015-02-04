@@ -60,11 +60,13 @@ function updatePhrase() {
   // Gets the data that users have typed into the Transcription and Translation boxes
   var transcription = nodes.transcriptionBox.value;
   var translation = nodes.translationBox.value;
-  
-  // Tokenizes the transcription based on punctuation and other funky characters
+
+	// Defines the delimiters that will be used to tokenize the string
     // Includes basic punctuation, brackets, inverted !/?, various quotes from around the world
-    // The filter(Boolean) will filter out the "" ending split since "" == False
-  var tokens = transcription.split(/[ .,!?\:\;\/\\\[\]\{\}\<\>\-\u3000\u00A1\u00BF\u0022\u0027\u00AB\u00BB\u2018\u2019\u201A\u201B\u201C\u201D\u201E\u201F\u2039\u203A\u300C\u300D\u300E\u300F\u301D\u301E\u301F\uFE41\uFE42\uFE43\uFE44\uFF02\uFF07\uFF62\uFF63]+/g).filter(Boolean);
+	var delimiters = [' ', '.', ',', '!', '?', ':', ';', '/', '\\', '[', ']', '{', '}', '<', '>', '-', '\u3000', '\u00A1', '\u00BF', '\u0022', '\u0027', '\u00AB', '\u00BB', '\u2018', '\u2019', '\u201A', '\u201B', '\u201C', '\u201D', '\u201E', '\u201F', '\u2039', '\u203A', '\u300C', '\u300D', '\u300E', '\u300F', '\u301D', '\u301E', '\u301F', '\uFE41', '\uFE42', '\uFE43', '\uFE44', '\uFF02', '\uFF07', '\uFF62', '\uFF63'];
+  
+  // Tokenizes the transcription based on the delimiters
+  var tokens = tokenize(transcription, delimiters);
   
   // For each token, creates a new word, then adds that word to the phrase object
   var words = [];

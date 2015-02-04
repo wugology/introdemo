@@ -1,3 +1,4 @@
+// Constructors for linguistic objects
 function Phrase() {
   this.transcripts = [];
   this.phonemicTranscriptions = [];
@@ -35,4 +36,15 @@ function Word() {
   this.morphemes = [];
   this.glosses = [];
   this.tags = [];
+};
+
+// General sitewide functions
+// Takes a string and tokenizes it based on a set of delimiters
+  // For now this is just blanket tokenization - later we may divide this into tokenizeWords & tokenizeSentences, and maybe others
+  // The filter(Boolean) will filter out the "" ending split since "" == False
+function tokenize(string, delimiters) {
+  delimiters = [' ', '.', ',', '!', '?']
+  delimiters = delimiters.join(')(');
+  var regExp = new RegExp('[(' + delimiters + ')]', 'g');
+  return string.split(regExp).filter(Boolean);
 };
