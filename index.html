@@ -19,14 +19,16 @@
     <section id=data>
       <section id=inputArea>
         <label for=transcriptionBox>
-    <p>Phrase</p>
-    <input id=transcriptionBox type=text>
-  </label>
+          <p>Phrase</p>
+          <input id=transcriptionBox type=text>
+        </label>
+        
+        <ol class=words></ol>
      
-  <label for=translationBox>
-    <p>Translation</p>
-    <input id=translationBox type=text>
-  </label>
+        <label for=translationBox>
+          <p>Translation</p>
+          <input id=translationBox type=text>
+        </label>
       </section>
       
       <pre id=jsonArea></pre>
@@ -54,10 +56,17 @@
   
   <a id=downloadButton download='mydata.json'>Download your data!</a>
   
+  <!-- This templates is not the full word template from the spec. This one is designed for pedagogical purposes instead. -->
   <template id=wordTemplate>
     <li class=word>
       <p class=wordToken></p>
-      <input class=wordGloss type=text>
+      <p class=wordGloss contenteditable>[enter gloss here]</p>
+      <select>
+        <option value=noun>n.</option>
+        <option value=verb>v.</option>
+        <option value=adjective>adj.</option>
+        <option value=other>other</option>
+      </select>
     </li>
   </template>
   

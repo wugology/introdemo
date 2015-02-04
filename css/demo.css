@@ -32,17 +32,39 @@ article, aside, canvas, details, embed, figure, figcaption, footer, header, hgro
   /* font-family has to be last in this declaration */
   font-family: "Gentium Plus", "Charis SIL", "Doulos SIL", "Lucida Sans Unicode", "Times New Roman", serif, sans-serif; }
 
-/* Styling by classes or element type */
+/* Styling by CSS rule (ordered alphabetically by CSS rule) */
+input[type="radio"] {
+  align-self: center; }
+
+a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var {
+  display: inline; }
+  
+#demo, input[type=date], .words {
+  flex-direction: row; }
+
+#demo, .words {
+  flex-wrap: wrap; }
+
+ol, ul {
+  list-style: none; }
+
+#inputArea, #jsonArea {
+  padding: 0.5rem; }
+
+blockquote, q {
+  quotes: none; }
+
+#data, #visualizations {
+  width: 50%;  }
+
+.words {
+  padding: 0 0.5rem; }
+
+/* Styling by classes or element type (ordered alphabetically by class name / element type) */
 a, a:hover, a:visited, a:active {
   background: transparent;
   color: inherit;
   text-decoration: none: }
-
-a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var {
-  display: inline; }
-
-blockquote, q {
-  quotes: none; }
 
 blockquote:before, blockquote:after, q:before, q:after {
   content: '';
@@ -55,53 +77,36 @@ h1 {
 input {
   background-color: lightgray; }
 
-input[type="date"] {
-  flex-direction: row; }
-
-input[type="radio"] {
-  align-self: center; }
-
-#inputArea, #jsonArea {
-  padding: 0.5rem; }
-
-ol, ul {
-  list-style: none; }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
   display: table; }
-  
-  tbody {
-    display: table-row-group; }
-  
-  td, td {
-    vertical-align: middle; }
-  
-  td {
-    display: table-cell; }
-  
-  th {
-    display: table-cell;
-    text-align: center; }
-  
-  thead {
-    display: table-header-group; }
-  
-  tr {
-    display: table-row; }
 
-/* Styling by DOM or element */
+tbody {
+  display: table-row-group; }
+
+td, td {
+  vertical-align: middle; }
+
+td {
+  display: table-cell; }
+
+th {
+  display: table-cell;
+  text-align: center; }
+
+thead {
+  display: table-header-group; }
+
+tr {
+  display: table-row; }
+
+/* Styling by DOM or element (ordered by DOM hierarchy) */
 html, body {
   background: white; }
 
 #demo {
-  height: 100%;
-  flex-direction: row;
-  flex-wrap: wrap; }
-
-#data, #visualizations {
-  width: 50%;  }
+  height: 100%; }
 
 #jsonArea {
   background-color: black;

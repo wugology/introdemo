@@ -43,8 +43,6 @@ function Word() {
   // For now this is just blanket tokenization - later we may divide this into tokenizeWords & tokenizeSentences, and maybe others
   // The filter(Boolean) will filter out the "" ending split since "" == False
 function tokenize(string, delimiters) {
-  delimiters = [' ', '.', ',', '!', '?']
-  delimiters = delimiters.join(')(');
-  var regExp = new RegExp('[(' + delimiters + ')]', 'g');
+  var regExp = new RegExp('[(' + delimiters.join(')(') + ')]+', 'g');
   return string.split(regExp).filter(Boolean);
 };
