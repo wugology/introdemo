@@ -7,7 +7,7 @@
   <meta name=keywords content='linguistics, data modeling, digital linguistics, wugbot, interlinear gloss'>
   <title>Visualizing Linguistic Data Structures</title>
 	
-  <link rel='stylesheet' type='text/css' href='css/demo.css'>
+  <link rel=stylesheet type='text/css' href='css/demo.css'>
 </head>
 
 <body>
@@ -35,11 +35,11 @@
     <section id=visualizations>
       <div class=visualization id=interlinearGloss>
         <h2>Interlinear Gloss</h2>
-        <div class='phrase'>
-          <p class='transcription'></p>
-          <ol class='words'></ol>
-          <p class='translation'></p>
-	</div>
+        <div class=phrase>
+          <p class=transcription></p>
+          <ol class=words></ol>
+          <p class=translation></p>
+				</div>
       </div>
       
       <div class=visualization id=stats>
@@ -50,27 +50,18 @@
         <p>Dictionary</p>
       </div>
     </section>
-
-    <section id="downloadArea"></section>
   </section>
 	
-  <footer>
-    <div id="github">
-      <a href="http://github.com/digitallinguistics/introdemo">check out the source</a>
-    </div>
-    
-    <div id="github" style="background: white;">
-      <a href="http://github.com/digitallinguistics/introdemo"><img src="./img/blacktocat-32.png"></a>
-    </div>
-  </footer>
+	<a id=downloadButton download='mydata.json'>Download your data!</a>
 	
-  <template id='wordTemplate'>
-    <li class='word'>
-      <p class='wordToken'></p>
-      <input class='wordGloss' type=text>
+  <template id=wordTemplate>
+    <li class=word>
+      <p class=wordToken></p>
+      <input class=wordGloss type=text>
     </li>
   </template>
 	
-  <script src="js/demo.js"></script>
+	<script src='js/script.js'></script>
+  <script src='js/demo.js'></script>
 </body>
 </html>

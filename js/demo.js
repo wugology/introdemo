@@ -1,13 +1,13 @@
 // GLOBAL VARIABLES
 var nodes = {
-  downloadArea: document.querySelector('#downloadArea'),
+  downloadButton: document.querySelector('#downloadButton'),
   inputArea: document.querySelector('#inputArea'),
   jsonArea: document.querySelector('#jsonArea'),
   transcriptionBox: document.querySelector('#transcriptionBox'),
   translationBox: document.querySelector('#translationBox')
 };
 
-// The phrase object
+// The phrase object (NOT created from the Phrase() constructor, for pedagogical purposes)
 var phrase = {
   transcription: '',
   translation: '',
@@ -15,11 +15,11 @@ var phrase = {
 };
 
 // CONSTRUCTORS
+// This Word() constructor is different from our official schema, for pedagogical purposes
 function Word(token, gloss, partOfSpeech) {
   this.token = token;
   this.gloss = gloss;
   this.partOfSpeech = partOfSpeech;
-  this.words = [];
 };
 
 // GLOBAL FUNCTIONS
@@ -39,13 +39,11 @@ function displayJSON() {
 };
 
 // Creates a download button where users can download their JSON data
-function downloadJSON(){
+function setDownloadButton(){
   // Get the JSON data
   var text = nodes.jsonArea.innerHTML;
-  // Encode
-  var data = "text/json;charset=utf-8," + encodeURIComponent(text);
-  // Create a download link
-  nodes.downloadArea.innerHTML = '<a class="button blue" href="data:' + data + '" download="data.json">Download your data!</a>'
+  // Set the download link to download the JSON data on click
+	nodes.downloadButton.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(text);
 };
 
 // Updates the phrase object, and (re-)renders the JSON, interlinear, and lexicon visualizations
@@ -54,6 +52,7 @@ function render() {
   displayJSON();
   displayInterlinear();
   displayDictionary();
+	setDownloadButton();
 };
 
 // Whenever the user types/changes the data, the phrase object is updated with that data
@@ -66,7 +65,6 @@ function updatePhrase() {
     // Includes basic punctuation, brackets, inverted !/?, various quotes from around the world
     // The filter(Boolean) will filter out the "" ending split since "" == False
   var tokens = transcription.split(/[ .,!?\:\;\/\\\[\]\{\}\<\>\-\u3000\u00A1\u00BF\u0022\u0027\u00AB\u00BB\u2018\u2019\u201A\u201B\u201C\u201D\u201E\u201F\u2039\u203A\u300C\u300D\u300E\u300F\u301D\u301E\u301F\uFE41\uFE42\uFE43\uFE44\uFF02\uFF07\uFF62\uFF63]+/g).filter(Boolean);
-  console.log(tokens);
 	
   // For each token, creates a new word, then adds that word to the phrase object
 	var words = [];
@@ -82,8 +80,5 @@ function updatePhrase() {
 };
 
 // EVENT LISTENERS
-nodes.inputArea.addEventListener('input', downloadJSON);
-window.addEventListener('load', downloadJSON);
-
 nodes.inputArea.addEventListener('input', render);
 window.addEventListener('load', render);
