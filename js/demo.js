@@ -66,12 +66,15 @@ function updatePhrase() {
     // Includes basic punctuation, brackets, inverted !/?, various quotes from around the world
     // The filter(Boolean) will filter out the "" ending split since "" == False
   var tokens = transcription.split(/[ .,!?\:\;\/\\\[\]\{\}\<\>\-\u3000\u00A1\u00BF\u0022\u0027\u00AB\u00BB\u2018\u2019\u201A\u201B\u201C\u201D\u201E\u201F\u2039\u203A\u300C\u300D\u300E\u300F\u301D\u301E\u301F\uFE41\uFE42\uFE43\uFE44\uFF02\uFF07\uFF62\uFF63]+/g).filter(Boolean);
-  
+  console.log(tokens);
+	
   // For each token, creates a new word, then adds that word to the phrase object
+	var words = [];
   tokens.forEach(function(token) {
     var word = new Word(token, '', '');
-    phrase.words.push(word);
+    words.push(word);
   });
+	phrase.words = words;
   
   // Sets the transcription and translation properties of the phrase object equal to the data typed in the transcription and translation boxes
   phrase.transcription = transcription;
