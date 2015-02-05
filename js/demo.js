@@ -55,11 +55,11 @@ function displayPhrase() {
   nodes.inputAreaWordsWrapper.innerHTML = '';
   phrase.words.forEach(function(word, i) {
     wordObject.id = 'word_' + i;
-    wordToken.textContent = word.token;
+    wordToken.innerHTML = word.token;
     if (word.gloss === '') {
-      wordGloss.value = placeholderText;
+      wordGloss.textContent = placeholderText;
     } else {
-      wordGloss.value = word.gloss;
+      wordGloss.textContent = word.gloss;
     }
     var newWord = wordTemplate.content.cloneNode(true);
     nodes.inputAreaWordsWrapper.appendChild(newWord);
@@ -115,7 +115,7 @@ function updatePhrase() {
   var wordObjects = nodes.wordsWrapper.children;
   for (var i=0; i<wordObjects.length; i++) {
     var wordIndex = wordObjects[i].id.replace('word_', '');
-    var gloss = document.querySelector('#' + wordObjects[i].id + ' .wordGloss').value;
+    var gloss = document.querySelector('#' + wordObjects[i].id + ' .wordGloss').textContent;
     if (gloss !== placeholderText) {
       phrase.words[wordIndex].gloss = gloss;
     }
