@@ -39,7 +39,7 @@ input[type="radio"] {
 a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var {
   display: inline; }
   
-#demo, input[type=date], .words {
+#demo, input[type=date], .words, .wordGloss {
   flex-direction: row; }
 
 #demo, .words {
