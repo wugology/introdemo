@@ -60,6 +60,15 @@ blockquote, q {
 .words {
   padding: 0 0.5rem; }
 
+.word {
+  margin-left: 1em; }
+
+.word .wordPOS {
+  border:none;
+  font-weight: bold;
+}
+
+
 /* Styling by classes or element type (ordered alphabetically by class name / element type) */
 a, a:hover, a:visited, a:active {
   background: transparent;
