@@ -115,3 +115,8 @@ html, body {
   font-weight: bold;
   margin: 0.5rem;
   overflow-x: scroll; }
+
+
+:focus {
+  background: rgba(255,255,100,.7);
+}
