@@ -72,7 +72,7 @@ function setDownloadButton(){
 // Updates the phrase object, and (re-)renders the JSON, interlinear, and lexicon visualizations
 function render(ev) {
   updatePhrase(ev);
-  if (ev.target.className !== 'wordGloss') {
+  if (ev.target.className !== 'wordGloss' && ev.target.className !== 'wordPOS') {
     displayPhrase();
   }
   displayJSON();
@@ -87,10 +87,11 @@ function updatePhrase(ev) {
     var wordIndex = ev.target.parentNode.id.replace('word_', '');
     phrase.words[wordIndex].gloss = ev.target.innerHTML;
   };
+  
+  // Gets the data that users have typed into the Transcription and Translation boxes
+  var transcription = nodes.transcriptionBox.value;
+  var translation = nodes.translationBox.value;
   if (ev.target.id === 'transcriptionBox') {
-    // Gets the data that users have typed into the Transcription box
-    var transcription = nodes.transcriptionBox.value;
-    
     // Defines the delimiters that will be used to tokenize the string
       // Includes basic punctuation, brackets, inverted !/?, various quotes from around the world
     var delimiters = [' ', '.', ',', '!', '?', ':', ';', '/', '\\', '[', '\\]', '{', '}', '<', '>', '-', '\u3000', '\u00A1', '\u00BF', '\u0022', '\u0027', '\u00AB', '\u00BB', '\u2018', '\u2019', '\u201A', '\u201B', '\u201C', '\u201D', '\u201E', '\u201F', '\u2039', '\u203A', '\u300C', '\u300D', '\u300E', '\u300F', '\u301D', '\u301E', '\u301F', '\uFE41', '\uFE42', '\uFE43', '\uFE44', '\uFF02', '\uFF07', '\uFF62', '\uFF63'];
@@ -106,7 +107,6 @@ function updatePhrase(ev) {
     });
     phrase.words = words;    
   }
-  var translation = nodes.translationBox.value;
     
   // Sets the transcription and translation properties of the phrase object equal to the data typed in the transcription and translation boxes
   phrase.transcription = transcription;
