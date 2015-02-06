@@ -55,7 +55,18 @@ blockquote, q {
   quotes: none; }
 
 #data, #visualizations {
-  width: 50%;  }
+  width: 50%;  
+}
+
+#visualizations {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100vh;
+}
+
+#visualizations .visualization {
+  flex: 1;
+}
 
 .words {
   padding: 0 0.5rem; }
@@ -64,7 +75,6 @@ blockquote, q {
   margin-left: 1em; }
 
 .word .wordPOS {
-  border:none;
   font-weight: bold;
 }
 
