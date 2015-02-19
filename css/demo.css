@@ -54,18 +54,28 @@ ol, ul {
 blockquote, q {
   quotes: none; }
 
-#data, #visualizations {
-  width: 50%;  
+#data {
+  flex: 7 ;
+  flex-direction: column;
 }
 
 #visualizations {
   display: flex;
+  padding: 1em;
+
+  flex: 6;
+ 
+
   flex-flow: column wrap;
   height: 100vh;
 }
 
 #visualizations .visualization {
-  flex: 1;
+  flex-grow: 1;
+  padding: 1em;
+  margin: .5em 0;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .words {
@@ -139,3 +149,4 @@ html, body {
 :focus {
   background: rgba(255,255,100,.7);
 }
+
