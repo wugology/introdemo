@@ -125,6 +125,25 @@ function updatePhrase() {
   }
 };
 
+//Displays statistics. Basic version displays phoneme frequency. Future versions could display POS frequency, most common words and their frequency (for larger data sets), n-gram frequency (for words or phonemes), etc. User could select which type of stat they want to display with a dropdown menu/switch statement, as well as how much data to show (top 5 most frequent, top 10, top 100, etc).
+
+//var phonemes = phonemize(phrase.transcription.value);
+//console.log(phonemes)
+
+document.addEventListener('DOMContentLoaded', function(){
+
+var button = document.querySelector('button');
+
+button.addEventListener('click', function(ev){
+   var text = document.body.querySelector('#transcriptionBox').value;
+   var phonemes = phonemize(text);
+   var freqs = freqTable(phonemes);
+   
+   }
+
+)})
+
+
 // EVENT LISTENERS
 nodes.inputArea.addEventListener('input', render);
 window.addEventListener('load', render);

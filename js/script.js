@@ -46,3 +46,32 @@ function tokenize(string, delimiters) {
   var regExp = new RegExp('[(' + delimiters.join(')(') + ')]+', 'g');
   return string.split(regExp).filter(Boolean);
 };
+
+
+//Gets rid of non-word characters, makes everything lower case, and outputs phonemes (letters)
+function phonemize(string) {
+  var text2 = string.replace(/\W+/g,"");
+  var text3 = text2.replace(/\d+/g, '');
+  var text4 = text3.toLowerCase();
+  var phonemes = text4.split('');
+  return phonemes;
+};
+
+
+//Takes an array (of phonemes, words, POS, etc.) and outputs a frequency table (matrix of a and b). From http://stackoverflow.com/questions/5667888/counting-occurences-of-javascript-array-elements
+
+function freqTable(array) {
+        var a = [], b = [], previous;
+        array.sort();
+        for ( var i = 0; i < array.length; i++ ) {
+            if ( array[i] !== previous ) {
+                a.push(array[i]);
+                b.push(1);
+            } else {
+                b[b.length-1]++;
+            }
+            previous = array[i];
+        }
+        return [a, b];
+    }
+
