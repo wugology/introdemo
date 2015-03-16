@@ -8,6 +8,7 @@ var nodes = {
   translationBox: document.querySelector('#translationBox'),
   transcriptionDisplay: document.querySelector('#interlinearGloss .transcription'),
   translationDisplay: document.querySelector('#interlinearGloss .translation'),
+  statisticsDisplay: document.querySelector('#stats'),
   wordTemplate: document.querySelector('#wordTemplate'),
   wordsWrapper: document.querySelector('.words')
 };
@@ -127,9 +128,6 @@ function updatePhrase() {
 
 //Displays statistics. Basic version displays phoneme frequency. Future versions could display POS frequency, most common words and their frequency (for larger data sets), n-gram frequency (for words or phonemes), etc. User could select which type of stat they want to display with a dropdown menu/switch statement, as well as how much data to show (top 5 most frequent, top 10, top 100, etc).
 
-//var phonemes = phonemize(phrase.transcription.value);
-//console.log(phonemes)
-
 document.addEventListener('DOMContentLoaded', function(){
 
 var button = document.querySelector('button');
@@ -137,8 +135,11 @@ var button = document.querySelector('button');
 button.addEventListener('click', function(ev){
    var text = document.body.querySelector('#transcriptionBox').value;
    var phonemes = phonemize(text);
-   var freqs = freqTable(phonemes);
-   
+   var plotData = freqTable(phonemes);
+   console.log(plotData);
+   //set barchart widith to width of nodes.statisticsDisplay
+   //figure out how to input plotData into D3 barchart
+   //figure out how to display barchart inside nodes.statisticsDisplay
    }
 
 )})

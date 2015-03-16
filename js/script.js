@@ -61,17 +61,18 @@ function phonemize(string) {
 //Takes an array (of phonemes, words, POS, etc.) and outputs a frequency table (matrix of a and b). From http://stackoverflow.com/questions/5667888/counting-occurences-of-javascript-array-elements
 
 function freqTable(array) {
-        var a = [], b = [], previous;
+        var item = [], frequency = [], previous;
         array.sort();
         for ( var i = 0; i < array.length; i++ ) {
             if ( array[i] !== previous ) {
-                a.push(array[i]);
-                b.push(1);
+                item.push(array[i]);
+                frequency.push(1);
             } else {
-                b[b.length-1]++;
+                frequency[frequency.length-1]++;
             }
             previous = array[i];
         }
-        return [a, b];
+        data = {key: item, value: frequency};
+        return data;
     }
 
